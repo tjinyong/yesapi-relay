@@ -21,7 +21,7 @@ YesAPI中转是一个高效的OpenAI、Claude等模型的API代理服务。我�
 ## 官方链接
 
 - 官网：https://yesapi.online
-- 教程文档：https://docs.yesapi.online
+- 教程文档：https://doc.yesapi.online
 
 ## 主流模型支持
 
