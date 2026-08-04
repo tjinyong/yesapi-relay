@@ -1,0 +1,63 @@
+# hugo server --minify --themesDir ../..
+
+baseURL = 'https://docs.yesapi.online/'
+title = 'YesAPI中转_低价稳定AI大模型中转API推荐'
+theme = 'book'
+defaultContentLanguage = 'zh'
+
+# Book configuration
+disablePathToLower = true
+enableGitInfo = true
+
+# Needed for mermaid/katex shortcodes
+[markup]
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.tableOfContents]
+  startLevel = 1
+
+# Multi-lingual mode config
+[languages]
+[languages.zh]
+  languageName = 'Chinese'
+  contentDir = 'content'
+  weight = 2
+
+[menu]
+[[menu.home]]
+  name = "YesAPI中转教程文档"
+  url = "/docs/introduction/"
+  weight = 1
+
+[[menu.home]]
+  name = "YesAPI中转官网"
+  url = "https://yesapi.online"
+  weight = 2
+
+[[menu.after]]
+  name = "中转API官网"
+  url = "https://yesapi.online"
+  weight = 20
+
+[params]
+  # (Optional, default light) Sets color theme: light, dark or auto.
+  BookTheme = 'auto'
+
+  # (Optional, default docs) Specify root page to render child pages as menu.
+  BookSection = 'docs'
+
+  # (Optional, default 'January 2, 2006') Configure the date format used on the pages
+  BookDateFormat = 'January 2, 2006'
+
+  # (Optional, default true) Enables search function with fuse.js.
+  BookSearch = true
+
+  # /!\ Experimental feature
+  BookPortableLinks = true
+
+  # /!\ Experimental feature
+  BookServiceWorker = true
+
+  # /!\ Experimental feature
+  BookTranslatedOnly = false

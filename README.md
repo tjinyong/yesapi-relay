@@ -1,53 +1,114 @@
-# yesapi-relay
+# YesAPI中转教程文档_Claude中转教程_中转站配置使用教程_支持Claude、OpenAI等主流模型教程
 
-A lightweight relay/proxy service for forwarding requests to [yesapi.online](https://yesapi.online), with request signing, retry logic, and response caching built in.
+## YesAPI中转API教程文档与使用指南
 
-## Why a relay?
+在接入大语言模型时，很多开发者会遇到网络不稳定、官方接口访问受限或支付不便的问题。YesAPI 中转就是一个实用的解决方案，通过中转站的形式，帮助用户快速对接 OpenAI、Claude 等主流模型。
 
-Calling an upstream API directly from client-side code or from many small internal services often leads to duplicated auth handling, inconsistent retry/backoff behavior, and no shared caching layer. This relay centralizes all of that in one place so downstream consumers only need to talk to a single, predictable endpoint.
+YesAPI中转教程文档：https://docs.yesapi.online
 
-## Features
+如果你是第一次使用，可以参考官方教程文档，平台接口与 OpenAI 完全兼容，支持 `/v1/chat/completions` 等标准端点。
 
-- **Request signing** — attaches the required auth headers to every outbound call so upstream credentials never need to be distributed to client apps.
-- **Automatic retries** — exponential backoff on `5xx` and network-level failures.
-- **Response caching** — optional in-memory/Redis cache for idempotent `GET` endpoints, configurable per route.
-- **Rate limiting** — per-client token bucket to stay within upstream quota.
-- **Structured logging** — every proxied request/response pair is logged with a correlation ID.
+- 注册账号后可获得测试额度，方便新手先跑通流程再决定是否充值
+- 支持多条线路，适配不同网络环境下的开发者
+- 教程文档中提供 Python、Node.js 等示例代码，可直接复制运行
 
-## Getting started
+## YesAPI中转一站式AI大模型API中转站 · 高性价比稳定中转API服务
 
-```bash
-git clone https://github.com/tjinyong/yesapi-relay.git
-cd yesapi-relay
-npm install
-cp .env.example .env
-npm start
-```
+YesAPI中转是一个高效的OpenAI、Claude等模型的API代理服务。我们致力于提供稳定的 API 接入体验，让你可以轻松将主流AI模型集成到自己的产品与服务中，无需分别对接每家厂商各不相同的接口协议。
 
-## Configuration
+随着大模型应用的普及，越来越多开发者与团队希望快速集成各类 AI 接口。但直接调用不同厂商的 API 往往面临接口差异大、计费方式不统一、访问不稳定等问题，这正是中转服务存在的价值。
 
-All configuration is provided via environment variables (see `.env.example`):
+## 官方链接
 
-| Variable | Description | Default |
-|---|---|---|
-| `YESAPI_BASE_URL` | Upstream base URL | `https://yesapi.online/api` |
-| `YESAPI_KEY` | Upstream API key used for signing requests | — |
-| `PORT` | Port this relay listens on | `8787` |
-| `CACHE_TTL_SECONDS` | Default cache TTL for cacheable routes | `60` |
-| `RATE_LIMIT_PER_MIN` | Max requests per client per minute | `120` |
+- 官网：https://yesapi.online
+- 教程文档：https://docs.yesapi.online
 
-## Usage
+## 主流模型支持
 
-Point your application at the relay instead of the upstream API directly:
+YesAPI中转汇聚了主流的大型人工智能模型，支持文本生成、图像生成等多种能力。核心优势包括模型资源丰富、接口统一、计费透明、接入简单。应用场景包括内容创作、客服自动化、数据分析等。
 
-```bash
-curl http://localhost:8787/v1/status
-```
+### OpenAI 系列
 
-The relay forwards the request to `https://yesapi.online/api/v1/status`, injecting the configured auth headers, and returns the upstream response unmodified (unless caching is enabled for that route).
+- GPT-5
+- GPT-4.1
+- o1 / o3-mini
+- GPT-4o / GPT-4o-mini
+- Text-to-Image
+- ……
 
-See [`docs/api.md`](docs/api.md) for the full list of proxied endpoints and [`docs/architecture.md`](docs/architecture.md) for how requests flow through the service.
+### Anthropic 系列
 
-## License
+- Claude Opus 4.1
+- Claude Sonnet 4
+- Claude 3.7 Sonnet
+- Claude 3.5 Sonnet
+- Claude 3 Haiku
+- ……
 
-MIT
+### 开源模型
+
+- DeepSeek R1 / DeepSeek V3
+- Llama 3.3
+- Qwen 系列
+- Mistral Large
+- ……
+
+## 什么是AI API中转站？
+
+AI API中转站是一个聚合、统一并转发 AI 接口调用的服务平台。开发者无需分别对接多个厂商的 API，只需通过中转站，就能调用不同模型与服务，相当于在原始接口前加了一层"统一入口"，屏蔽底层复杂性，提供更加稳定、灵活的接入方式。
+
+## 中转站的核心优势
+
+#### 1. 统一接口标准
+
+各家大模型的 API 参数、认证方式各不相同，直接对接会增加学习和维护成本。中转站将不同接口标准化，开发者只需学习一套规范即可调用多个模型。
+
+#### 2. 提升访问稳定性
+
+直连官方 API 可能受网络环境、节点延迟影响。中转站通常部署了多节点加速，确保请求更稳定。
+
+#### 3. 聚合计费
+
+不同厂商的计费规则不一致。中转站支持统一充值、统一计费，降低账户管理成本。
+
+#### 4. 支持多模型切换
+
+一个项目可能需要多种模型，中转站让你在同一套凭证下快速切换调用不同模型，提升开发效率。
+
+#### 5. 附加能力
+
+部分中转站还提供调用日志、用量统计、速率限制优化等增强功能。
+
+## 为什么选择 YesAPI 中转（yesapi.online）
+
+- **多模型支持**：覆盖主流大模型，满足不同场景需求
+- **稳定可用**：多节点部署，故障自动切换
+- **统一调用规范**：一次学习，调用所有支持的接口
+- **灵活计费**：按量计费，无最低消费门槛
+- **开发者友好**：文档完善，接入成本低
+
+#### 适用场景
+
+- 个人开发者：想快速体验不同模型，无需注册多个平台账号
+- 企业应用：需要在不同业务场景中调用多个模型，降低运维成本
+- 创业团队：快速验证产品原型，避免重复接入工作
+
+## 如何快速接入 YesAPI 中转
+
+3 步接入 YesAPI 中转：
+
+1. 注册账号，获取测试额度
+2. 在后台生成 API Key（令牌）
+3. 将请求地址替换为 `https://yesapi.online`，其余代码逻辑无需改动
+
+立即体验：[YesAPI 中转](https://yesapi.online)
+
+## 总结
+
+AI API 中转站的出现，大幅简化了接入与管理多家 AI 模型的成本。通过 YesAPI 中转（yesapi.online），开发者和企业能够以更低成本、更高效率、更稳定的方式调用主流 AI 模型，加速智能应用的落地。
+
+## 拓展阅读：常见配置教程
+
+- [YesAPI 中转简介](content/docs/introduction.md)
+- [快速使用指南](content/docs/guide.md)
+- [常见错误码说明](content/docs/errorcode.md)

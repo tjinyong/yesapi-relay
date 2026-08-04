@@ -1,0 +1,3 @@
+[submodule "yesapidoc/themes/book"]
+	path = yesapidoc/themes/book
+	url = https://github.com/alex-shpak/hugo-book.git
