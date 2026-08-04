@@ -8,11 +8,20 @@ YesAPI中转教程文档：https://docs.yesapi.online
 
 如果你是第一次使用，可以参考官方教程文档，平台接口与 OpenAI 完全兼容，支持 `/v1/chat/completions` 等标准端点。
 
-- 注册账号后可获得测试额度，方便新手先跑通流程再决定是否充值
 - 支持多条线路，适配不同网络环境下的开发者
 - 教程文档中提供 Python、Node.js 等示例代码，可直接复制运行
 
 ## YesAPI中转一站式AI大模型API中转站 · 高性价比稳定中转API服务
+
+<div align="center">
+    <img width="419" height="392" style="max-width: 100%; height: auto;" alt="image" src="https://github.com/user-attachments/assets/dfdc9ebe-b003-40d9-b3cf-da7ba6708cf0" />
+    <div style="margin-top: 15px; color: #555; font-size: 14px;">
+        图片更新于2026.08.04，时值市面中转站过去几天几乎全军覆盖之际，本API中转站全网唯一的企业渠道维持7天无中断。并且价格最低。
+    </div>
+</div>
+
+## 
+## 
 
 YesAPI中转是一个高效的OpenAI、Claude等模型的API代理服务。我们致力于提供稳定的 API 接入体验，让你可以轻松将主流AI模型集成到自己的产品与服务中，无需分别对接每家厂商各不相同的接口协议。
 
@@ -27,30 +36,22 @@ YesAPI中转是一个高效的OpenAI、Claude等模型的API代理服务。我�
 
 YesAPI中转汇聚了主流的大型人工智能模型，支持文本生成、图像生成等多种能力。核心优势包括模型资源丰富、接口统一、计费透明、接入简单。应用场景包括内容创作、客服自动化、数据分析等。
 
+ChatGPT-企业渠道 | Enterprise Line 更是只有 消耗倍率 0.2x，配合充值折扣，实际倍率:0.03 ，官方3%的价格即可使用全网最稳定中转。
+
+
 ### OpenAI 系列
 
-- GPT-5
-- GPT-4.1
-- o1 / o3-mini
-- GPT-4o / GPT-4o-mini
-- Text-to-Image
-- ……
+- gpt-5.6-luna
+- gpt-5.6-sol
+- gpt-5.6-terra 
 
 ### Anthropic 系列
 
-- Claude Opus 4.1
-- Claude Sonnet 4
-- Claude 3.7 Sonnet
+- Claude Opus 5.0
+- Claude Opus 4.8
+- Claude Fable 5
 - Claude 3.5 Sonnet
 - Claude 3 Haiku
-- ……
-
-### 开源模型
-
-- DeepSeek R1 / DeepSeek V3
-- Llama 3.3
-- Qwen 系列
-- Mistral Large
 - ……
 
 ## 什么是AI API中转站？
