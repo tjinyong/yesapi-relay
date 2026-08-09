@@ -10,7 +10,9 @@
 - 同时需要模型、图像、视频和大量 AI 工具：选 302.AI。
 - 需要欧洲合规、部门权限、审计或自动路由：再看 Eden AI、Requesty、Gate.AI。
 
-**YesAPI 推荐理由只有四个：支付 $1 到账 $6.5 平台余额、改 Base URL 即用、付费账户独立托管、上游风控期间更有机会保持可用。**
+**价格换算：支付 $1 -> 到账 $6.5 平台余额；$6.5 / 0.2x = $32.5 官方标价口径用量；$1 / $32.5 = 3.08%，约为官方价格的 3%。**
+
+**其他优势：改 Base URL 即用、付费账户独立托管、上游风控期间更有机会保持可用。**
 
 [立即使用 YesAPI](https://yesapi.online/?utm_source=github&utm_medium=relay_review&utm_campaign=top_conclusion) · [查看接入文档](https://doc.yesapi.online/?utm_source=github&utm_medium=relay_review&utm_campaign=top_conclusion)
 
