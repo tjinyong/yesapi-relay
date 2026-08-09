@@ -16,14 +16,29 @@
 
 ## 一张表直接选
 
-| 平台 | 最适合谁 | 最明显的优势 | 使用前要知道 |
-| :--- | :--- | :--- | :--- |
-| **[YesAPI](https://yesapi.online/?utm_source=github&utm_medium=relay_review&utm_campaign=summary_table)** | **国内个人、小团队、AI 编程工具用户** | **人民币充值；付费账户托管；改 Base URL 即用** | 首字可能略高；低峰日志清理可能短暂闪断 |
-| [OpenRouter](https://openrouter.ai/) | 需要最多模型和全球 Provider 的团队 | 400+ 模型、70+ Provider、企业路由能力 | 充值有 5.5% 平台费；国内链路需自行确认 |
-| [302.AI](https://302.ai/) | 需要模型、图像、视频和 AI 工具的用户 | 产品品类多、统一钱包 | 功能多，只用模型 API 时选择成本较高 |
-| [Eden AI](https://www.edenai.co/) | 有欧洲数据合规要求的企业 | SOC 2、ISO 27001、EU 数据驻留 | 面向海外企业，个人用户容易用不满 |
-| [Requesty](https://www.requesty.ai/) | 需要部门权限、审计和预算治理的企业 | RBAC、审计、ZDR、企业 SLA | 企业治理较重，国内使用需自行确认 |
-| [Gate.AI](https://gate.ai/) | 需要自动选路和 fallback 的生产团队 | 200+ 模型、自动路由、企业治理 | 路由配置更多，固定模型用户未必需要 |
+| 平台 | 价格与计价方式 | 最适合谁 | 最明显的优势 | 使用前要知道 |
+| :--- | :--- | :--- | :--- | :--- |
+| **[YesAPI](https://yesapi.online/?utm_source=github&utm_medium=relay_review&utm_campaign=summary_table)** | **支付 ¥1 到账 $1 平台余额；调用时按模型倍率扣余额。0.2x 表示官方 $1 用量扣 $0.20 余额** | **国内个人、小团队、AI 编程工具用户** | **人民币充值；付费账户托管；改 Base URL 即用** | 首字可能略高；低峰日志清理可能短暂闪断 |
+| [OpenRouter](https://openrouter.ai/) | 模型和 Provider 的公开 Token 单价原价透传；购买余额另收 **5.5%**，最低手续费 **$0.80** | 需要最多模型和全球 Provider 的团队 | 400+ 模型、70+ Provider、企业路由能力 | 国内链路与国际支付环境需自行确认 |
+| [302.AI](https://302.ai/) | 预充值后按量扣费；文本按输入/输出 Token，图片和工具等按调用次数；余额长期有效 | 需要模型、图像、视频和 AI 工具的用户 | 产品品类多、统一钱包 | 不同 API 单价不同，只用模型 API 时选择成本较高 |
+| [Eden AI](https://www.edenai.co/) | Provider 原价；购买 Credits 时收 **5.5%** 平台费，每次响应返回美元成本；企业版询价 | 有欧洲数据合规要求的企业 | SOC 2、ISO 27001、EU 数据驻留 | 面向海外企业，个人用户容易用不满 |
+| [Requesty](https://www.requesty.ai/) | 基础模型成本加 **5%**；无订阅费、席位费和最低消费；企业方案询价 | 需要部门权限、审计和预算治理的企业 | RBAC、审计、ZDR、企业 SLA | 企业治理较重，国内使用需自行确认 |
+| [Gate.AI](https://gate.ai/) | 模型官方单价、无平台加价；文本按 Token，多模态按次数、时长或规格；预付余额长期有效 | 需要自动选路和 fallback 的生产团队 | 200+ 模型、自动路由、企业治理 | 路由配置更多，固定模型用户未必需要 |
+
+### YesAPI 倍率怎么算
+
+YesAPI 的“充值到账”和“模型扣费”是两步，不能只看其中一个：
+
+```text
+充值 ¥10 -> 到账 $10 平台余额
+调用官方标价 $10 的模型用量：
+
+1.0x 倍率 -> 扣 $10 余额
+0.4x 倍率 -> 扣  $4 余额
+0.2x 倍率 -> 扣  $2 余额
+```
+
+因此，`0.2x` 不是“充值打两折”，而是调用相同官方标价口径的模型用量时，只按20%消耗平台余额。具体模型的输入、输出、缓存价格及倍率，以 YesAPI 控制台实时展示为准。
 
 ## 为什么推荐 YesAPI
 
@@ -103,6 +118,8 @@ YesAPI 的平台余额和模型倍率需要分开理解：
 
 OpenRouter 提供 400+ 模型和 70+ Provider，企业版包含 SSO、策略路由、预算控制、数据策略和 SLA。它适合需要大量模型、全球 Provider 和细粒度路由策略的团队。
 
+**计价：** 各模型和 Provider 按公开的输入、输出 Token 单价原价透传，购买余额时另收 `5.5%` 平台费，最低手续费 `$0.80`。手续费在购买 Credits 时收取，不重复加到每次模型调用上。
+
 ### 优点
 
 - 模型和 Provider 覆盖最广；
@@ -125,6 +142,8 @@ OpenRouter 提供 400+ 模型和 70+ Provider，企业版包含 SSO、策略路�
 
 302.AI 不只是 LLM 中转，还覆盖图像、视频、音频、文档处理、机器人和工具市场。统一钱包、按量计费，适合希望在一个平台尝试多类 AI 能力的用户。
 
+**计价：** 先充值统一钱包，再按实际用量扣费。文本模型通常分别按输入和输出 Token 计费；图片、视频和部分工具按调用次数、生成时长或任务规格计费。没有一个倍率可以概括全部 API，必须查看具体项目价格。
+
 ### 优点
 
 - API 和 AI 工具种类丰富；
@@ -145,6 +164,8 @@ OpenRouter 提供 400+ 模型和 70+ Provider，企业版包含 SSO、策略路�
 **官网：** [edenai.co](https://www.edenai.co/)
 
 Eden AI 是面向企业的统一 AI Gateway，公开提供 500+ 模型、50+ Provider，并强调 SOC 2、ISO 27001、GDPR 和欧洲数据驻留。
+
+**计价：** Provider 模型价格原价透传，不对模型单价加价；购买 Credits 时收取 `5.5%` 平台费。每次 API 响应提供美元 `cost` 字段，Advanced 企业方案按用量、限额和 SLA 单独报价。
 
 ### 优点
 
@@ -167,6 +188,8 @@ Eden AI 是面向企业的统一 AI Gateway，公开提供 500+ 模型、50+ Pro
 
 Requesty 提供统一 LLM Gateway，重点是 RBAC、团队预算、审计、零数据保留和企业 SLA。它更像公司的 AI 管理层，而不只是一个充值后调用的中转站。
 
+**计价：** Pay-as-you-go 在基础模型成本上增加 `5%`。例如上游模型每百万 Token 成本为 `$10`，通过 Requesty 对应为 `$10.50`；没有订阅费、席位费或最低消费，企业方案另行询价。
+
 ### 优点
 
 - 组织、角色和预算治理完整；
@@ -187,6 +210,8 @@ Requesty 提供统一 LLM Gateway，重点是 RBAC、团队预算、审计、零
 **官网：** [gate.ai](https://gate.ai/)
 
 Gate.AI 提供 200+ 模型，强调智能路由、自动 fallback、ZDR、成本治理和组织权限。它适合希望平台自动选择模型或在上游故障时切换路线的生产团队。
+
+**计价：** 模型单价与官方同步，平台页面标明不额外加价。文本模型按输入、输出及缓存 Token 计费；图片、音频和视频按生成次数、时长、分辨率或任务规格计费。预付 Credits 按量消耗且长期有效，企业批量折扣单独协商。
 
 ### 优点
 
@@ -252,9 +277,12 @@ Docs:     https://doc.yesapi.online
 - [OpenRouter Pricing](https://openrouter.ai/pricing)
 - [OpenRouter Enterprise](https://openrouter.ai/enterprise)
 - [302.AI API Pricing](https://help.302.ai/en/docs/API-Pricing)
+- [Eden AI Pricing](https://www.edenai.co/pricing)
 - [Eden AI Gateway](https://www.edenai.co/docs/v3/overview/ai-gateway)
 - [Eden AI About](https://www.edenai.co/about)
+- [Requesty Pricing](https://www.requesty.ai/pricing)
 - [Requesty Enterprise](https://www.requesty.ai/enterprise)
+- [Gate.AI Pricing](https://gate.ai/pricing)
 - [Gate.AI](https://gate.ai/)
 
 ## 免责声明
